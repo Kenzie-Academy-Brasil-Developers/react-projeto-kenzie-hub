@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 body {
+  /* width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+  background-color: #121214;
   margin: 0;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
