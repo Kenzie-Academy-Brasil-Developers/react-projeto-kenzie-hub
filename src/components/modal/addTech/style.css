@@ -1,0 +1,83 @@
+.modalAddTech {
+    width: 370px;
+    height: 342px;
+    background-color: #212529;
+    border: 1px solid #212529;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modalAddTechHeader{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 15px;
+    background-color: #343B41;
+    margin-bottom: 10px;
+}
+
+.titleModal{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.closeModal{
+    color: #868E96;
+    font-size: 16;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.formNewTech{
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.inputModal {
+    background-color: #343B41;
+    color: #F8F9FA;
+    border: 1.2px solid #F8F9FA;
+    border-radius: 4px;
+    padding: 0px 16px;
+    width: 310px;
+    height: 48px;
+    font-size: 16.24px;
+    font-weight: 400;
+}
+
+.selectModal {
+    background-color: #343B41;
+    color: #F8F9FA;
+    border: 1.2px solid #F8F9FA;
+    border-radius: 4px;
+    padding: 0px 16px;
+    width: 344.49px;
+    height: 48px;
+    font-size: 16.24px;
+    font-weight: 400;
+}
+
+.btnModal {
+    align-self: center;
+    width: 340px;
+    height: 48px;
+    background-color: #FF577F;
+    border: 1.22px solid #FF577F;
+    border-radius: 4px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btnModal:hover {
+    background-color: #FF427F;
+    border: 1.22 solid #FF427F;
+}
+
+

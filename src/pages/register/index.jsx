@@ -4,13 +4,10 @@ import { useForm } from "react-hook-form";
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-import { useState } from "react";
 import axios from "axios";
 
 
 function Register () {
-
-  const [newUser, setNewUser] = useState([])
 
   const history = useHistory()
 
@@ -52,28 +49,28 @@ function Register () {
           resolver: yupResolver(formSchema)
       })
 
+
+
     const onSubmit = (data) => {
-      setNewUser({
-        name: data.name,
-        email: data.email,
-        password: data.password,
-        bio: data.bio,
-        contact: data.contact,
-        course_module: data.course_module})
-        newUserApi()
+      const {name, email, password, bio, contact, course_module} = data
+      const user = {name, email, password, bio, contact, course_module}
+      newUserApi(user)
       }
       
-    const newUserApi = () => {
-      axios.post('https://kenziehub.herokuapp.com/users', newUser)
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err))
+    const newUserApi = (user) => {
+      axios.post('https://kenziehub.herokuapp.com/users', user)
+        .then((response) => response.status === 201 && successRegister())
+        .catch((err) => err.response.status !== 201 && errorRegister())
     }
 
-    // CRIAR FUNÇÃO DE SUCESSO QUE IRÁ
-    // LANÇAR UM TOAST E REDIRECIONAR PARA A PÁGINA DE LOGIN
+    function successRegister () {
+      toast.success('Usuário criado com sucesso!')
+      setTimeout(history.push('/'),1500)
+    }
 
-    // CIRAR UMA FUNCAO DE NÃO SUCESSO
-    // QUE IRÁ LANÇAR UM TOAT E AGUARDARÁ NOVO CADASTRO
+    function errorRegister(){
+      toast.error('Verifique os dados cadastrados')
+    }
 
     return (
         <div className="pageRegister">

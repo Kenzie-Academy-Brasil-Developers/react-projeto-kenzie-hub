@@ -40,11 +40,16 @@ function Login () {
     const loginSuccess = (response) => {
         console.log(response)
         localStorage.setItem('token', response.data.token)
+        localStorage.setItem('id', response.data.user.id)
+        localStorage.setItem('name', response.data.user.name)
+        localStorage.setItem('course_module', response.data.user.course_module)
         toast.success('Logado com sucesso');
+        setTimeout(() => {
+            history.push('/home')
+        },1500)
     }
 
     const errorLogin = (err) => {
-        console.log('PEGOU: ' + err)
         toast.error('Verifique e-mail e senha')
     }
 
@@ -74,10 +79,10 @@ function Login () {
             <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
                 <h3>Login</h3>
                 <label>E-mail</label>
-                <input type="text" {...register('email')}/>
+                <input placeholder="E-mail" type="text" {...register('email')}/>
                 <span className='errorSpan'>{errors.email?.message}</span>
                 <label>Senha</label>
-                <input type="password" {...register('password')}/>
+                <input placeholder="Senha" type="password" {...register('password')}/>
                 <span className='errorSpan'>{errors.password?.message}</span>
                 <button className="btnLogin" type="submit">Entrar</button>
             </form>

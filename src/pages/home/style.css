@@ -1,0 +1,132 @@
+
+
+@media (max-width: 540px) {
+
+
+
+    .header-home{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 73px;
+        border-bottom: 1px solid #212529;
+        padding: 0px 12px;
+    }
+    
+    .btnLogout{
+        background-color: #212529;
+        border: 1px solid #212529;
+        border-radius: 4px;
+        height: 32px;
+        width: 55px;
+        font-size: 12;
+        font-weight: 600;
+        color: #F8F9FA;
+        cursor: pointer;
+    }
+    
+    .btnLogout:hover{
+        background-color: #343B41;
+        border: 1px solid #343B41;
+    }
+    
+    .nav-home{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        height: 131px;
+        padding: 0px 12px;
+        border-bottom: 1px solid #212529;
+    }
+    
+    .nav-home-user{
+        color: #F8F9FA;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    
+    .nav-home-module{
+        color: #868E96;
+        font-size: 12px;
+        font-weight: 400;
+    }
+    
+    .container-tech-header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 12px;
+        margin-top: 10px;
+    }
+    
+    .container-tech-tittle{
+        color: #F8F9FA;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 18px;
+    }
+    
+    .container-tech-btn {
+        background-color: #212529;
+        border: 1px solid #212529;
+        border-radius: 4px;
+        width: 32px;
+        height: 32px;
+        color: #FFF;
+        font-size: 22px;
+        cursor: pointer;
+    }
+    
+    .container-tech-btn:hover {
+        background-color: #343B41;
+        border: 1px solid #343B41;
+    }
+
+    .container-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        border-radius: 4px;
+        background-color: #212529;
+        margin: 0px 12px;
+        padding: 22px 8.5px;
+    }
+
+    .card{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #121214;
+        border: 1px solid #121214;
+        border-radius: 4px;
+        padding: 12.18px;
+    }
+
+    .card:hover{
+        background-color: #343B41;
+        border: 1px solid #343B41;
+    }
+
+    .cardCard{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    .cardName{
+        font-size: 15px;
+        font-weight: 700;
+        color: #F8F9FA;
+    }
+
+    .cardNivel{
+        font-size: 13px;
+        font-weight: 400;
+        color: #868E96;
+    }
+
+
+}
+
