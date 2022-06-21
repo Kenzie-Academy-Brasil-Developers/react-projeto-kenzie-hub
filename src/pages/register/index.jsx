@@ -1,10 +1,135 @@
+import "./style.css"
+import toast, { Toaster } from 'react-hot-toast';
+import { useForm } from "react-hook-form";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { useState } from "react";
+import axios from "axios";
+
 
 function Register () {
 
+  const [newUser, setNewUser] = useState([])
+
+  const history = useHistory()
+
+  const formSchema = yup.object().shape({
+      name: yup
+          .string()
+          .required('Nome obrigatório'),
+      email: yup
+          .string()
+          .required('E-mail obrigatório')
+          .email('Digite um e-mail válido'),
+      password: yup
+          .string()
+          .required('Senha obrigatória')
+          .min(6, 'Senha no mínimo 6 digitos'),
+      passwordConfirmation: yup
+          .string()
+          .required('Confirmação de senha obrigatória')
+          .oneOf([yup.ref('password'), null], 'A senha deve ser igual'),
+      bio: yup
+          .string()
+          .required('Bio obrigatório')
+          .min(10, 'Escreva no mínimo 10 letras'),
+      contact: yup
+          .string()
+          .required('Contato obrigatório')
+          .min(3, 'Rede Social, Telefone ou E-mail'),
+      course_module: yup
+          .string()
+          .required('Módulo obrigatório'),
+        
+    })
+
+    const { 
+        register, 
+        handleSubmit,
+        formState: { errors }
+      } = useForm({
+          resolver: yupResolver(formSchema)
+      })
+
+    const onSubmit = (data) => {
+      setNewUser({
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        bio: data.bio,
+        contact: data.contact,
+        course_module: data.course_module})
+        newUserApi()
+      }
+      
+    const newUserApi = () => {
+      axios.post('https://kenziehub.herokuapp.com/users', newUser)
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err))
+    }
+
+    // CRIAR FUNÇÃO DE SUCESSO QUE IRÁ
+    // LANÇAR UM TOAST E REDIRECIONAR PARA A PÁGINA DE LOGIN
+
+    // CIRAR UMA FUNCAO DE NÃO SUCESSO
+    // QUE IRÁ LANÇAR UM TOAT E AGUARDARÁ NOVO CADASTRO
+
     return (
-        <>
-        <h1>Cadastre-se</h1>
-        </>
+        <div className="pageRegister">
+            <div className="headerRegister">
+              <h1 className="logoName">Kenzie Hub</h1>
+              <button className="btnBack" onClick={() => history.goBack()}>Voltar</button>
+            </div>
+            <Toaster
+            position="top-right"
+            reverseOrder={true}
+            toastOptions={{
+                success: {
+                  style: {
+                    background: '#343B41',
+                    color: '#F8F9FA'
+                  },
+                },
+                error: {
+                  style: {
+                    background: '#343B41',
+                    color: '#F8F9FA',
+                  },
+                },
+              }}
+            />
+            <div className="containerLogin">
+              <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
+                <label>Nome *</label>
+                <input {...register('name')}/>
+                <span className='errorSpan'>{errors.name?.message}</span>
+                <label>E-mail *</label>
+                <input {...register('email')}/>
+                <span className='errorSpan'>{errors.email?.message}</span>
+                <label>Senha *</label>
+                <input type="password" {...register('password')}/>
+                <span className='errorSpan'>{errors.password?.message}</span>
+                <label>Confirmar senha *</label>
+                <input type="password" {...register('passwordConfirmation')}/>
+                <span className='errorSpan'>{errors.passwordConfirmation?.message}</span>
+                <label>Bio *</label>
+                <input {...register('bio')}/>
+                <span className='errorSpan'>{errors.bio?.message}</span>
+                <label>Contato *</label>
+                <input {...register('contact')}/>
+                <span className='errorSpan'>{errors.contact?.message}</span>
+                <label>Selecionar módulo *</label>
+                <select {...register('course_module')}>
+                  <option>Primeiro módulo (Introdução ao Frontend)</option>
+                  <option>Segundo módulo (Frontend Avançado)</option>
+                  <option>Terceiro módulo (Introdução ao Backend)</option>
+                  <option>Quarto módulo (Backend Avançado)</option>
+                </select>
+                <button className="btnLogin">Cadastrar</button>
+              </form>
+            </div>
+        </div>
     )
 }
 

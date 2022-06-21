@@ -51,6 +51,7 @@ function Login () {
 
     return (
         <div className="pageLogin">
+            <h1 className="logoName">Kenzie Hub</h1>
         <Toaster
             position="top-right"
             reverseOrder={true}

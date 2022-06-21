@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .containerLogin{
@@ -14,9 +15,11 @@
     gap: 24px;
     background-color: #212529;
     border-radius: 4px;
-    width: 370px;
-    height: 502px;
+    width: 350px;
+    height: auto;
     padding: 42px 22px;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .loginForm {
@@ -56,6 +59,18 @@ input {
     font-weight: 400;
 }
 
+select {
+    background-color: #343B41;
+    color: #F8F9FA;
+    border: 1.2px solid #F8F9FA;
+    border-radius: 4px;
+    padding: 0px 16px;
+    width: 364.38px;
+    height: 48px;
+    font-size: 16.24px;
+    font-weight: 400;
+}
+
 .register-p{
     color: #868E96;
     font-size: 12;
@@ -64,7 +79,7 @@ input {
 
 .btnLogin {
     align-self: center;
-    width: 324px;
+    width: 364.97px;
     background-color: #FF577F;
     border: 1.22px solid #FF577F;
     border-radius: 4px;
@@ -90,7 +105,7 @@ input {
     background-color: #868E96;
     border: 1.22px solid #868E96;
     border-radius: 4px;
-    width: 324px;
+    width: 364.97px;
     color: #FFF;
     padding: 22px 0px;
     font-size: 16px;
