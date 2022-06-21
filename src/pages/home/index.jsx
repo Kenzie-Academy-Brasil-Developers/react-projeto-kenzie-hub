@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import AddTech from "../../components/modal/addTech";
 import DeleteTech from "../../components/modal/deleteTech";
+import { Toaster } from "react-hot-toast";
 
 
 function Home () {
@@ -49,6 +50,24 @@ return(
                 setModalDeleteTech={setModalDeleteTech}
                 setIdDeleteTech={setIdDeleteTech}/>
         </div>
+        <Toaster
+            position="top-right"
+            reverseOrder={true}
+            toastOptions={{
+                success: {
+                style: {
+                    background: '#343B41',
+                    color: '#F8F9FA'
+                },
+                },
+                error: {
+                style: {
+                    background: '#343B41',
+                    color: '#F8F9FA',
+                },
+                },
+            }}
+        />
         {modalAddTech === true && <AddTech setModalAddTech={setModalAddTech} updateTech={updateTech}/>}
         {modalDeleteTech === true && <DeleteTech setModalDeleteTech={setModalDeleteTech} idDeleteTech={idDeleteTech} updateTech={updateTech}/>}
     </div>

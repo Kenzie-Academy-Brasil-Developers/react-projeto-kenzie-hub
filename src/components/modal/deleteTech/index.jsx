@@ -14,7 +14,7 @@ function DeleteTech({setModalDeleteTech, idDeleteTech, updateTech}) {
             },
           })
           .then((response) => successDelete())
-          .catch((err) => console.log(err))
+          .catch((err) => toast.error('Não foi possível deletar'))
     }
 
     const successDelete = () => {
@@ -43,24 +43,6 @@ function DeleteTech({setModalDeleteTech, idDeleteTech, updateTech}) {
           <button className="btnDeleteTech" onClick={() => setModalDeleteTech(false)}>Não</button>
         </div>
       </div>
-      <Toaster
-            position="top-right"
-            reverseOrder={true}
-            toastOptions={{
-                success: {
-                style: {
-                    background: '#343B41',
-                    color: '#F8F9FA'
-                },
-                },
-                error: {
-                style: {
-                    background: '#343B41',
-                    color: '#F8F9FA',
-                },
-                },
-            }}
-        />
     </div>
   );
 }

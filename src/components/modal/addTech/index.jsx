@@ -1,6 +1,6 @@
 import "./style.css"
 import { useForm } from "react-hook-form";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import axios from "axios";
@@ -23,9 +23,6 @@ function AddTech ({setModalAddTech, updateTech}) {
     })
 
     const onSubmit = (data) => {
-        console.log(data)
-        
-
         axios.post('https://kenziehub.herokuapp.com/users/techs', data, {
             headers: {
               'Authorization': `Bearer ${localStorage.token}`
@@ -53,7 +50,7 @@ function AddTech ({setModalAddTech, updateTech}) {
                 </div>
                 <form className="formNewTech" onSubmit={handleSubmit(onSubmit)}>
                     <label>Nome</label>
-                    <input className="inputModal" placeholder="Nome" {...register('title')}/>
+                    <input className="inputModal" placeholder="Ex: React.js" {...register('title')}/>
                     <span className='errorSpan'>{errors.title?.message}</span>
                     <label>Selecionar status</label>
                     <select className="selectModal" {...register('status')}>
@@ -63,24 +60,7 @@ function AddTech ({setModalAddTech, updateTech}) {
                     </select>
                     <button type="submit" className="btnModal">Cadastrar Tecnologia</button>
                 </form>
-                <Toaster
-                    position="top-right"
-                    reverseOrder={true}
-                    toastOptions={{
-                        success: {
-                        style: {
-                            background: '#343B41',
-                            color: '#F8F9FA'
-                        },
-                        },
-                        error: {
-                        style: {
-                            background: '#343B41',
-                            color: '#F8F9FA',
-                        },
-                        },
-                    }}
-                />
+                
             </div>
     )
 }

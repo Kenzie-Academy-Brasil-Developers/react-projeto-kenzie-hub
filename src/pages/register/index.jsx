@@ -99,22 +99,22 @@ function Register () {
             <div className="containerLogin">
               <form className="loginForm" onSubmit={handleSubmit(onSubmit)}>
                 <label>Nome *</label>
-                <input {...register('name')}/>
+                <input {...register('name')} placeholder='Nome'/>
                 <span className='errorSpan'>{errors.name?.message}</span>
                 <label>E-mail *</label>
-                <input {...register('email')}/>
+                <input {...register('email')} placeholder='E-mail'/>
                 <span className='errorSpan'>{errors.email?.message}</span>
                 <label>Senha *</label>
-                <input type="password" {...register('password')}/>
+                <input type="password" {...register('password')} placeholder='Senha'/>
                 <span className='errorSpan'>{errors.password?.message}</span>
                 <label>Confirmar senha *</label>
-                <input type="password" {...register('passwordConfirmation')}/>
+                <input type="password" {...register('passwordConfirmation')} placeholder='Confirmar senha'/>
                 <span className='errorSpan'>{errors.passwordConfirmation?.message}</span>
                 <label>Bio *</label>
-                <input {...register('bio')}/>
+                <input {...register('bio')} placeholder='Conta sobre você'/>
                 <span className='errorSpan'>{errors.bio?.message}</span>
                 <label>Contato *</label>
-                <input {...register('contact')}/>
+                <input {...register('contact')} placeholder='ex.: @fulano'/>
                 <span className='errorSpan'>{errors.contact?.message}</span>
                 <label>Selecionar módulo *</label>
                 <select {...register('course_module')}>

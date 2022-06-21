@@ -1,6 +1,6 @@
 .modalAddTech {
     width: 370px;
-    height: 342px;
+    height: 335px;
     background-color: #212529;
     border: 1px solid #212529;
     border-radius: 4px;
@@ -35,7 +35,7 @@
     padding: 0px 15px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
 .inputModal {
