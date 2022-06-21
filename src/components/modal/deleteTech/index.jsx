@@ -1,6 +1,6 @@
 import "./style.css";
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 
 function DeleteTech({setModalDeleteTech, idDeleteTech, updateTech}) {
 
@@ -24,9 +24,6 @@ function DeleteTech({setModalDeleteTech, idDeleteTech, updateTech}) {
             setModalDeleteTech(false)
         },1500)
     }
-
-
-
 
   return (
     <div className="modalDeleteTech">
